@@ -13,6 +13,7 @@
 		5A5CDBB722455F4E000B6E2D /* VirtualTourist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A5CDBB522455F4E000B6E2D /* VirtualTourist.xcdatamodeld */; };
 		5A5CDBB922455F52000B6E2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A5CDBB822455F52000B6E2D /* Assets.xcassets */; };
 		5A5CDBBC22455F52000B6E2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5CDBBA22455F52000B6E2D /* LaunchScreen.storyboard */; };
+		5AEA1BAE2288C15E00586209 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA1BAD2288C15E00586209 /* PhotoAlbumViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		5A5CDBB822455F52000B6E2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A5CDBBB22455F52000B6E2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A5CDBBD22455F52000B6E2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AEA1BAD2288C15E00586209 /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				5A5CDBB022455F4E000B6E2D /* MapViewController.swift */,
+				5AEA1BAD2288C15E00586209 /* PhotoAlbumViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -123,6 +126,7 @@
 				TargetAttributes = {
 					5A5CDBAA22455F4E000B6E2D = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -165,6 +169,7 @@
 				5A5CDBB122455F4E000B6E2D /* MapViewController.swift in Sources */,
 				5A5CDBAF22455F4E000B6E2D /* AppDelegate.swift in Sources */,
 				5A5CDBB722455F4E000B6E2D /* VirtualTourist.xcdatamodeld in Sources */,
+				5AEA1BAE2288C15E00586209 /* PhotoAlbumViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +324,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sdk.VirtualTourist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -337,7 +342,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sdk.VirtualTourist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
