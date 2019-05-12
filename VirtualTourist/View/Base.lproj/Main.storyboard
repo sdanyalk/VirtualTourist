@@ -124,6 +124,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uKG-v3-0x3"/>
                     </view>
+                    <connections>
+                        <outlet property="albumCollection" destination="bPE-wf-VWi" id="eNl-9g-zc8"/>
+                        <outlet property="getNewCollectionButton" destination="JJg-Le-caQ" id="EyR-6d-ARV"/>
+                        <outlet property="mapView" destination="Cha-rX-pXs" id="OxB-eS-SZQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x0i-Wu-vkZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
