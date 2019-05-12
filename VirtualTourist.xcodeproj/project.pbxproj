@@ -14,6 +14,7 @@
 		5A5CDBB922455F52000B6E2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A5CDBB822455F52000B6E2D /* Assets.xcassets */; };
 		5A5CDBBC22455F52000B6E2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5CDBBA22455F52000B6E2D /* LaunchScreen.storyboard */; };
 		5AEA1BAE2288C15E00586209 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA1BAD2288C15E00586209 /* PhotoAlbumViewController.swift */; };
+		5AEA1BB02288C5C400586209 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA1BAF2288C5C400586209 /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		5A5CDBBB22455F52000B6E2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A5CDBBD22455F52000B6E2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AEA1BAD2288C15E00586209 /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
+		5AEA1BAF2288C5C400586209 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				5A5CDBB522455F4E000B6E2D /* VirtualTourist.xcdatamodeld */,
+				5AEA1BAF2288C5C400586209 /* DataController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AEA1BB02288C5C400586209 /* DataController.swift in Sources */,
 				5A5CDBB122455F4E000B6E2D /* MapViewController.swift in Sources */,
 				5A5CDBAF22455F4E000B6E2D /* AppDelegate.swift in Sources */,
 				5A5CDBB722455F4E000B6E2D /* VirtualTourist.xcdatamodeld in Sources */,

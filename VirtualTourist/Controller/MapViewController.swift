@@ -61,4 +61,12 @@ extension MapViewController: MKMapViewDelegate {
         
         return pinView
     }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        mapView.deselectAnnotation(view.annotation, animated: true)
+        
+        let photoAlbumVC = storyboard?.instantiateViewController(withIdentifier: "PhotoAlbumViewController") as! PhotoAlbumViewController;
+        
+        navigationController?.pushViewController(photoAlbumVC, animated: true)
+    }
 }
