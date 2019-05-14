@@ -13,6 +13,8 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
+    var dataController: DataController!
+    
     // MARK : - Lifecycle Methods
     
     override func viewDidLoad() {
@@ -68,6 +70,9 @@ extension MapViewController: MKMapViewDelegate {
         let pin: Pin = view.annotation as! Pin
         
         let photoAlbumVC = storyboard?.instantiateViewController(withIdentifier: "PhotoAlbumViewController") as! PhotoAlbumViewController;
+        
+        photoAlbumVC.pin = pin
+        photoAlbumVC.dataController = dataController
         
         navigationController?.pushViewController(photoAlbumVC, animated: true)
     }

@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreData
 
-class PhotoAlbumViewController: UIViewController, NSFetchedResultsControllerDelegate {
+class PhotoAlbumViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var albumCollection: UICollectionView!
@@ -34,7 +34,7 @@ class PhotoAlbumViewController: UIViewController, NSFetchedResultsControllerDele
 
 // MARK : - Private Methods
 
-extension PhotoAlbumViewController {
+extension PhotoAlbumViewController: NSFetchedResultsControllerDelegate {
     
     private func setupFetchedResultsController() {
         let fetchRequest: NSFetchRequest<Photo> = Photo.fetchRequest()
