@@ -20,6 +20,8 @@
 		5AEA1BBE228A939200586209 /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA1BBD228A939200586209 /* PhotoResponse.swift */; };
 		5AEA1BC0228A943400586209 /* FlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA1BBF228A943400586209 /* FlickrPhoto.swift */; };
 		5AEA1BC2228A971C00586209 /* FlickrPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA1BC1228A971C00586209 /* FlickrPhotos.swift */; };
+		5AEA1BC6228D32F200586209 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA1BC5228D32F200586209 /* ViewController+Extension.swift */; };
+		5AEA1BC8228D359900586209 /* Pin+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA1BC7228D359900586209 /* Pin+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		5AEA1BBD228A939200586209 /* PhotoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
 		5AEA1BBF228A943400586209 /* FlickrPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhoto.swift; sourceTree = "<group>"; };
 		5AEA1BC1228A971C00586209 /* FlickrPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhotos.swift; sourceTree = "<group>"; };
+		5AEA1BC5228D32F200586209 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
+		5AEA1BC7228D359900586209 /* Pin+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 		5A5CDBAD22455F4E000B6E2D /* VirtualTourist */ = {
 			isa = PBXGroup;
 			children = (
+				5AEA1BC4228D32BB00586209 /* Extension */,
 				5A5CDBAE22455F4E000B6E2D /* AppDelegate.swift */,
 				5A5CDBBD22455F52000B6E2D /* Info.plist */,
 				5ADF825C224993A30020C6C3 /* Controller */,
@@ -106,6 +111,7 @@
 				5AEA1BB6228A8CE900586209 /* Shared */,
 				5A5CDBB522455F4E000B6E2D /* VirtualTourist.xcdatamodeld */,
 				5AEA1BAF2288C5C400586209 /* DataController.swift */,
+				5AEA1BC7228D359900586209 /* Pin+Extension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -134,6 +140,14 @@
 				5AEA1BC1228A971C00586209 /* FlickrPhotos.swift */,
 			);
 			path = "Flickr Responses";
+			sourceTree = "<group>";
+		};
+		5AEA1BC4228D32BB00586209 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5AEA1BC5228D32F200586209 /* ViewController+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,9 +227,11 @@
 				5AEA1BBB228A91D500586209 /* FlickrClient.swift in Sources */,
 				5AEA1BC0228A943400586209 /* FlickrPhoto.swift in Sources */,
 				5A5CDBAF22455F4E000B6E2D /* AppDelegate.swift in Sources */,
+				5AEA1BC8228D359900586209 /* Pin+Extension.swift in Sources */,
 				5A5CDBB722455F4E000B6E2D /* VirtualTourist.xcdatamodeld in Sources */,
 				5AEA1BB8228A8CFE00586209 /* Endpoints.swift in Sources */,
 				5AEA1BC2228A971C00586209 /* FlickrPhotos.swift in Sources */,
+				5AEA1BC6228D32F200586209 /* ViewController+Extension.swift in Sources */,
 				5AEA1BAE2288C15E00586209 /* PhotoAlbumViewController.swift in Sources */,
 				5AEA1BBE228A939200586209 /* PhotoResponse.swift in Sources */,
 			);

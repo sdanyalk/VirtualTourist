@@ -8,22 +8,32 @@
 
 import UIKit
 import MapKit
+import CoreData
 
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
     var dataController: DataController!
+    var fetchedResultsController: NSFetchedResultsController<Pin>!
     
     // MARK : - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupFetchedResultsController()
+        loadMapAnnotations()
+        
         mapView.delegate = self
         
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed(sender:)))
         mapView.addGestureRecognizer(longPressRecognizer)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        fetchedResultsController = nil
     }
     
     // MARK: Action Methods
@@ -36,13 +46,11 @@ class MapViewController: UIViewController {
         let touchPoint = sender.location(in: mapView)
         let coordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        self.mapView.addAnnotation(annotation)
+        addPin(latitude: coordinate.latitude, longitude: coordinate.longitude)
     }
 }
 
-// MARK : - Delegate Methods
+// MARK : - MapView Delegate Methods
 
 extension MapViewController: MKMapViewDelegate {
     
@@ -75,5 +83,68 @@ extension MapViewController: MKMapViewDelegate {
         photoAlbumVC.dataController = dataController
         
         navigationController?.pushViewController(photoAlbumVC, animated: true)
+    }
+}
+
+// MARK : - FetchedResults Delegate Methods
+
+extension MapViewController: NSFetchedResultsControllerDelegate {
+    
+    private func setupFetchedResultsController() {
+        let fetchRequest: NSFetchRequest<Pin> = Pin.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
+        
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: dataController.viewContext,
+            sectionNameKeyPath: nil,
+            cacheName: nil)
+        fetchedResultsController.delegate = self
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
+    }
+    
+    internal func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                             didChange anObject: Any,
+                             at indexPath: IndexPath?,
+                             for type: NSFetchedResultsChangeType,
+                             newIndexPath: IndexPath?) {
+        guard let pin = anObject as? Pin else {
+            preconditionFailure("NOT A PIN!")
+        }
+        
+        switch type {
+        case .insert:
+            mapView.addAnnotation(pin)
+            break
+        default: ()
+        }
+    }
+}
+
+// MARK : - Private Methods
+
+extension MapViewController {
+    
+    private func addPin(latitude: Double, longitude: Double) {
+        let pin = Pin(context: dataController.viewContext)
+        
+        pin.latitude = latitude
+        pin.longitude = longitude
+        pin.creationDate = Date()
+        
+        try? dataController.viewContext.save()
+    }
+    
+    private func loadMapAnnotations() {
+        if let pins = fetchedResultsController.fetchedObjects {
+            mapView.addAnnotations(pins)
+        }
     }
 }

@@ -24,6 +24,14 @@ class PhotoAlbumViewController: UIViewController {
         super.viewDidLoad()
         
         setupFetchedResultsController()
+        
+        if (fetchedResultsController.sections?[0].numberOfObjects ?? 0 == 0) {
+            getPhotos()
+        }
+        
+        mapView.addAnnotation(pin)
+        mapView.showAnnotations([pin], animated: true)
+        mapView.isUserInteractionEnabled = false
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -55,6 +63,20 @@ extension PhotoAlbumViewController: NSFetchedResultsControllerDelegate {
             try fetchedResultsController.performFetch()
         } catch {
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
+    }
+    
+    private func getPhotos(){
+        FlickrClient.getPhotos(lat: pin.latitude, long: pin.longitude) { photoResponse, error in
+            if let error = error {
+                self.showError(withMessage: error.localizedDescription)
+                
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.albumCollection.reloadData()
+            }
         }
     }
 }
