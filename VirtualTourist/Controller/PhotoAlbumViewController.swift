@@ -132,6 +132,21 @@ extension PhotoAlbumViewController: NSFetchedResultsControllerDelegate {
             print("Error saving")
         }
     }
+    
+    @IBAction func deleteAllPhotos() {
+        if let photos = fetchedResultsController.fetchedObjects {
+            for photo in photos {
+                dataController.viewContext.delete(photo)
+                
+                do {
+                    try dataController.viewContext.save()
+                } catch {
+                    print("Unable to save to the db")
+                }
+            }
+        }
+        getPhotos()
+    }
 }
 
 // MARK : - CollectionView Datasource
@@ -197,5 +212,15 @@ extension PhotoAlbumViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return insets.right
+    }
+}
+
+// MARK : - CollectionView Delegate
+
+extension PhotoAlbumViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photoToDelete = fetchedResultsController.object(at: indexPath)
+        deletePhoto(photoToDelete)
     }
 }
