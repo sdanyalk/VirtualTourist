@@ -23,6 +23,7 @@
 		5AEA1BC6228D32F200586209 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA1BC5228D32F200586209 /* ViewController+Extension.swift */; };
 		5AEA1BC8228D359900586209 /* Pin+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA1BC7228D359900586209 /* Pin+Extension.swift */; };
 		5AEA1BCD2290B8D300586209 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA1BCC2290B8D300586209 /* PhotoCollectionViewCell.swift */; };
+		5AEA1BCF2290E09200586209 /* CollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA1BCE2290E09200586209 /* CollectionView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		5AEA1BC5228D32F200586209 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		5AEA1BC7228D359900586209 /* Pin+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin+Extension.swift"; sourceTree = "<group>"; };
 		5AEA1BCC2290B8D300586209 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		5AEA1BCE2290E09200586209 /* CollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				5AEA1BC5228D32F200586209 /* ViewController+Extension.swift */,
+				5AEA1BCE2290E09200586209 /* CollectionView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				5A5CDBAF22455F4E000B6E2D /* AppDelegate.swift in Sources */,
 				5AEA1BC8228D359900586209 /* Pin+Extension.swift in Sources */,
 				5A5CDBB722455F4E000B6E2D /* VirtualTourist.xcdatamodeld in Sources */,
+				5AEA1BCF2290E09200586209 /* CollectionView+Extension.swift in Sources */,
 				5AEA1BB8228A8CFE00586209 /* Endpoints.swift in Sources */,
 				5AEA1BC2228A971C00586209 /* FlickrPhotos.swift in Sources */,
 				5AEA1BC6228D32F200586209 /* ViewController+Extension.swift in Sources */,

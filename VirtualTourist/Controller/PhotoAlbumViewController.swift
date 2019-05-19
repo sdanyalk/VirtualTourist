@@ -33,8 +33,12 @@ class PhotoAlbumViewController: UIViewController {
         
         setupFetchedResultsController()
         
+        enableGetNewCollectionButton(enable: false)
+        
         if (fetchedResultsController.sections?[0].numberOfObjects ?? 0 == 0) {
             getPhotos()
+        } else {
+            enableGetNewCollectionButton(enable: true)
         }
         
         mapView.addAnnotation(pin)
@@ -93,7 +97,13 @@ extension PhotoAlbumViewController: NSFetchedResultsControllerDelegate {
         }
     }
     
+    private func enableGetNewCollectionButton(enable: Bool) {
+        self.getNewCollectionButton.isEnabled = enable
+    }
+    
     private func getPhotos() {
+        enableGetNewCollectionButton(enable: false)
+        
         FlickrClient.getPhotos(lat: pin.latitude, long: pin.longitude) { photoURLlist, error in
             if let error = error {
                 self.showError(withMessage: error.localizedDescription)
@@ -109,6 +119,7 @@ extension PhotoAlbumViewController: NSFetchedResultsControllerDelegate {
             
             DispatchQueue.main.async {
                 self.albumCollection.reloadData()
+                self.enableGetNewCollectionButton(enable: true)
             }
         }
     }
@@ -154,12 +165,29 @@ extension PhotoAlbumViewController: NSFetchedResultsControllerDelegate {
 extension PhotoAlbumViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        /*
+         I wasn't able to find a better way to handle 'if no photos are found for a location'.
+         The message will pop-up for every location, but as soon as the placeholders and images start
+         popping up, this message will go away.
+         
+         If the location doesn't have any photo, then this message will remain displayed.
+         
+         I tried stackoverflow, and this seem to be the best solution.
+         */
+        if (fetchedResultsController.sections?[section].numberOfObjects ?? 0 == 0) {
+            albumCollection.setEmptyMessage("No photos found for this location.")
+        } else {
+            albumCollection.deleteEmptyMessage()
+        }
+        
         return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let photoData = fetchedResultsController.object(at: indexPath)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCollectionViewCell
+        
+        cell.imageView.image = UIImage(named: "placeholder")
         
         if let photoData = photoData.data {
             cell.imageView.image = UIImage(data: photoData)
