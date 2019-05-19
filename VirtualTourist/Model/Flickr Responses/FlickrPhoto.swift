@@ -16,9 +16,9 @@ struct FlickrPhoto: Codable {
     let server: String
     let farm: Int
     let title: String
-    let isPublic: Bool
-    let isFriend: Bool
-    let isFamily: Bool
+    let isPublic: Int
+    let isFriend: Int
+    let isFamily: Int
 
     enum CodingKeys: String, CodingKey {
         case id

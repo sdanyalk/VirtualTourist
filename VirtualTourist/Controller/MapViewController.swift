@@ -31,6 +31,13 @@ class MapViewController: UIViewController {
         mapView.addGestureRecognizer(longPressRecognizer)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setupFetchedResultsController()
+        loadMapAnnotations()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         fetchedResultsController = nil
@@ -47,6 +54,7 @@ class MapViewController: UIViewController {
         let coordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         
         addPin(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        loadMapAnnotations()
     }
 }
 
@@ -61,9 +69,8 @@ extension MapViewController: MKMapViewDelegate {
         
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            pinView!.canShowCallout = true
+            pinView!.canShowCallout = false
             pinView!.pinTintColor = .red
-            pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         else {
             pinView!.annotation = annotation

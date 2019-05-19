@@ -19,7 +19,7 @@ enum Endpoints {
     var stringValue: String {
         switch self {
         case .searchPhotos:
-            return Endpoints.flickrBaseUrl + "/?method=flickr.photos.search&" + Endpoints.key
+            return Endpoints.flickrBaseUrl + "/?method=flickr.photos.search&api_key=" + Endpoints.key
         }
     }
     

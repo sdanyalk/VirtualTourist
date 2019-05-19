@@ -71,10 +71,10 @@
                                 </constraints>
                             </mapView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bPE-wf-VWi">
-                                <rect key="frame" x="0.0" y="170" width="320" height="350"/>
+                                <rect key="frame" x="0.0" y="170" width="320" height="375"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="Dvl-J4-iX0"/>
+                                    <constraint firstAttribute="height" constant="375" id="Dvl-J4-iX0"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aao-hd-cB0">
                                     <size key="itemSize" width="101" height="93"/>
@@ -83,14 +83,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="yrD-tf-VCG">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="yrD-tf-VCG" customClass="PhotoCollectionViewCell" customModule="VirtualTourist" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="101" height="93"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="101" height="93"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="joW-MO-5od">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="joW-MO-5od">
                                                     <rect key="frame" x="0.0" y="0.0" width="101" height="93"/>
                                                 </imageView>
                                             </subviews>
@@ -101,11 +101,15 @@
                                             <constraint firstItem="joW-MO-5od" firstAttribute="leading" secondItem="yrD-tf-VCG" secondAttribute="leading" id="tgY-C1-oNA"/>
                                             <constraint firstAttribute="trailing" secondItem="joW-MO-5od" secondAttribute="trailing" id="xJW-ka-H0R"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="joW-MO-5od" id="IhX-bC-QRt"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJg-Le-caQ">
-                                <rect key="frame" x="0.0" y="520" width="320" height="48"/>
+                                <rect key="frame" x="0.0" y="545" width="320" height="23"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="New Collection"/>
                             </button>
                         </subviews>
